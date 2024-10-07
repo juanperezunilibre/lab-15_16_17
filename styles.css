@@ -9,29 +9,56 @@
 }
 
 header {
-    background-position: center;
-    background-size: 100% 100%;
     color: #fff;
 
     padding: 25px;
     background-color: brown;
-}
-
-
-nav {
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-top: 20px;
+}
+
+
+header button {
+    background: transparent;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    color: #eee;
+    border: 1px solid #eeeeee;
+    cursor: pointer;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: brown;
+    left: -100%;
+    top: 103px;
+    width: 100%;
+    background-color: #576574;
+    
+    transition: all .3s ease;
 }
 
 nav div {
-    flex: 1;
+    flex-grow: 1;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    transition: all .3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 main {
@@ -40,10 +67,17 @@ main {
     margin: auto;
 }
 
+main::before {
+    content: "";
+    width: 100%;
+    height: 170px;
+    display: block;
+}
+
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
 }
 
 .products-grid span {
@@ -55,6 +89,7 @@ main {
 
 .product-card img {
     width: 100%;
+    object-fit: contain;
 }
 
 .product-card {
@@ -77,4 +112,62 @@ main {
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.product-card p {
+    flex: 1;
+}
+
+
+.product-card div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media screen and (min-width: 480px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        background-color: brown;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    header button {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media screen and (min-width: 1280px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.visible {
+    left: 0;
 }
