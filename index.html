@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Café aroma de Lia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+
 </head>
-<body>
+
+<body id="app">
     <header>
         <button id="menu-toggle-button">
             <i class="fa fa-bars"></i>
         </button>
         <h1 class="title title-h1">Café aroma de Lia</h1>
         <nav id="nav-menu">
-            <a href="">Productos</a>
+            <a href="index.html">
+                Productos
+            </a>
             <a href="">Contacto</a>
             <div></div>
             <a href="login.html">Registro / Iniciar sesion</a>
-            <a href="">Carrito de compras</a>
+            <a href="cart.html" id="cart-link">Carrito de compras</a>
         </nav>
     </header>
 
@@ -26,6 +33,7 @@
         <div class="products-grid" id="products-grid"></div>
     </main>
 
-    <script src="script.js" type="module"></script>
+    <script src="assets/js/script.js" type="module"></script>
 </body>
+
 </html>

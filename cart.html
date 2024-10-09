@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de compras :: Café aroma de Lia</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <button id="menu-toggle-button">
+            <i class="fa fa-bars"></i>
+        </button>
+        <h1 class="title title-h1">Café aroma de Lia</h1>
+        <nav id="nav-menu">
+            <a href="index.html">Productos</a>
+            <a href="">Contacto</a>
+            <div></div>
+            <a href="login.html">Registro / Iniciar sesion</a>
+            <a href="cart.html">Carrito de compras</a>
+        </nav>
+    </header>
+    <main>
+        <section class="cart-wrapper">
+            <div class="cart-list-wrapper">
+                <h1>Carrito de compras</h1>
+                <div id="cart-list"></div> <!-- Inyectar los productos seleccionados -->
+            </div>
+            <div class="total-wrapper">
+                <h2>Total</h2>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/cart.js" type="module"></script>
+</body>
+</html>

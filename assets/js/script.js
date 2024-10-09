@@ -1,3 +1,13 @@
+import { cart } from "./carrito.js"
+
+const menuToggleButton = document.getElementById("menu-toggle-button")
+
+const navMenu = document.getElementById("nav-menu")
+
+
+menuToggleButton.addEventListener("click", function() {
+    navMenu.classList.toggle("visible")
+})
 
 
 const products = [
@@ -32,12 +42,28 @@ const products = [
 ]
 
 
-function seleccionarProducto (e) {
-    console.log(e.target)
+function seleccionarProducto (item) {
+    let carrito = cart.get()
+    let found = carrito.find(i => i.name === item.name)
+    
+    if (found) {
+        found.quantity++
+        found.subtotal = found.quantity * found.price
+    } else {
+        carrito.push({
+            id: carrito.length + 1,
+            name: item.name,
+            quantity: 1,
+            price: item.price,
+    
+        })
+    }
+    
+    cart.save(carrito)
+    alert(`Producto ${item.name} añadido al carrito`)
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-
+function populateProducts () {
     let productsGrid = document.getElementById("products-grid")
     
     for(let item of products) {
@@ -71,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.innerHTML = "Agregar al carrito"
 
         // asignamos la funcion para cuando hagamos clic en el boton
-        button.onclick = seleccionarProducto
+        button.onclick = () => seleccionarProducto(item)
 
         // añadiendo el elementos al elemento article
         article.appendChild(img)
@@ -82,7 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // añadimos cada article a la lista de productos
         productsGrid.appendChild(article)
     }
+}
 
 
+document.addEventListener("DOMContentLoaded", () => { 
+    const cartLink = document.getElementById("cart-link")
+    cartLink.innerHTML += cart.count() > 0 ? ` (${cart.count()})` : ""
+    populateProducts()
 })
-
